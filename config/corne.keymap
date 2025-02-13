@@ -46,22 +46,20 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             tapping-term-ms = <180>;
             quick-tap-ms = <160>;
-            hold-trigger-key-positions = <38>;
         };
 
         right_thumb: right_thumb {
             compatible = "zmk,behavior-hold-tap";
             label = "RIGHT_THUMB";
-            bindings = <&kp>, <&kp>;
+            bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <180>;
             quick-tap-ms = <160>;
-            flavor = "tap-preferred";
-            hold-trigger-key-positions = <39>;
+            flavor = "balanced";
         };
 
         right_pinky: right_pinky {
@@ -70,11 +68,10 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <300>;
             require-prior-idle-ms = <250>;
-            hold-trigger-key-positions = <11>;
         };
     };
 
