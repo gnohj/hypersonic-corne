@@ -13,12 +13,6 @@
     quick-release;
 };
 
-&mt {
-    tapping-term-ms = <180>;
-    flavor = "tap-preferred";
-    retro-tap;
-};
-
 / {
     combos {
         compatible = "zmk,combos";
@@ -42,7 +36,7 @@
     behaviors {
         hm: hm {
             compatible = "zmk,behavior-hold-tap";
-            label = "HM";
+            label = "thumb";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -53,7 +47,7 @@
 
         hm2: hm2 {
             compatible = "zmk,behavior-hold-tap";
-            label = "HM2";
+            label = "pinky";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
