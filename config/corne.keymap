@@ -40,35 +40,24 @@
     };
 
     behaviors {
-        left_thumb: left_thumb {
+        hm: hm {
             compatible = "zmk,behavior-hold-tap";
-            label = "LEFT_THUMB";
+            label = "HM";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <180>;
             quick-tap-ms = <160>;
         };
 
-        right_thumb: right_thumb {
+        hm2: hm2 {
             compatible = "zmk,behavior-hold-tap";
-            label = "RIGHT_THUMB";
-            bindings = <&mo>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <180>;
-            quick-tap-ms = <160>;
-            flavor = "balanced";
-        };
-
-        right_pinky: right_pinky {
-            compatible = "zmk,behavior-hold-tap";
-            label = "RIGHT_PINKY";
+            label = "HM2";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <300>;
             require-prior-idle-ms = <250>;
@@ -87,10 +76,10 @@
 
             display-name = "Base";
             bindings = <
-&lt 3 TAB        &kp Q  &kp W  &kp E     &kp R  &kp T                     &kp Y                         &kp U      &kp I      &kp O    &kp P     &right_pinky LS(LC(LA(LG(ESCAPE)))) ESCAPE
-&mt LCTRL GRAVE  &kp A  &kp S  &kp D     &kp F  &kp G                     &kp H                         &kp J      &kp K      &kp L    &kp SEMI  &mt LALT SINGLE_QUOTE
-&sk LEFT_SHIFT   &kp Z  &kp X  &kp C     &kp V  &kp B                     &kp N                         &kp M      &kp COMMA  &kp DOT  &kp FSLH  &sk RIGHT_SHIFT
-                               &kp LGUI  &mo 1  &left_thumb LALT ENTER    &right_thumb LCTRL BACKSPACE  &kp SPACE  &mo 2
+&lt 3 TAB        &kp Q  &kp W  &kp E     &kp R  &kp T             &kp Y                &kp U      &kp I      &kp O    &kp P     &hm2 LS(LC(LA(LGUI))) ESCAPE
+&mt LCTRL GRAVE  &kp A  &kp S  &kp D     &kp F  &kp G             &kp H                &kp J      &kp K      &kp L    &kp SEMI  &mt LALT SINGLE_QUOTE
+&sk LEFT_SHIFT   &kp Z  &kp X  &kp C     &kp V  &kp B             &kp N                &kp M      &kp COMMA  &kp DOT  &kp FSLH  &sk RIGHT_SHIFT
+                               &kp LGUI  &mo 1  &hm LALT ENTER    &hm LCTRL BACKSPACE  &kp SPACE  &mo 2
             >;
         };
 
