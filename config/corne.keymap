@@ -49,6 +49,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
             quick-tap-ms = <160>;
+            hold-trigger-key-positions = <38>;
         };
 
         right_thumb: right_thumb {
@@ -60,6 +61,7 @@
             tapping-term-ms = <180>;
             quick-tap-ms = <160>;
             flavor = "tap-preferred";
+            hold-trigger-key-positions = <39>;
         };
 
         right_pinky: right_pinky {
@@ -72,7 +74,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <300>;
             require-prior-idle-ms = <250>;
-            hold-trigger-on-release;
+            hold-trigger-key-positions = <11>;
         };
     };
 
