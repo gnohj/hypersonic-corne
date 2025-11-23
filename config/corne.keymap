@@ -51,6 +51,31 @@
         };
     };
 
+    behaviors {
+        hm: hm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "thumb";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <50>;
+        };
+
+        hm2: hm2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "pinky";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <270>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <250>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -65,17 +90,17 @@
             display-name = "Base";
             bindings = <
 //    ┌───────────────┬───┬───┬──────┬──────┬─────────────┐               ┌──────────────┬─────┬──────┬───┬───────────────────────────────┬─────────────┐
-//    │ &mt ralt tab │ Q │ W │  E   │  R   │      T      │               │      Y       │  U  │  I   │ O │               P               │ mt lalt esc │
+//    │ &hm2 ralt tab │ Q │ W │  E   │  R   │      T      │               │      Y       │  U  │  I   │ O │               P               │ mt lalt esc │
 //    ├───────────────┼───┼───┼──────┼──────┼─────────────┤               ├──────────────┼─────┼──────┼───┼───────────────────────────────┼─────────────┤
 //    │   mt lctl `   │ A │ S │  D   │  F   │      G      │               │      H       │  J  │  K   │ L │           mt rctl ;           │  mt lgui '  │
 //    ├───────────────┼───┼───┼──────┼──────┼─────────────┤               ├──────────────┼─────┼──────┼───┼───────────────────────────────┼─────────────┤
-//    │   &sk lsft    │ Z │ X │  C   │  V   │      B      │               │      N       │  M  │  ,   │ . │ &mt lsft(lctl(lalt(lgui))) / │  &sk rsft   │
+//    │   &sk lsft    │ Z │ X │  C   │  V   │      B      │               │      N       │  M  │  ,   │ . │ &hm2 lsft(lctl(lalt(lgui))) / │  &sk rsft   │
 //    └───────────────┴───┴───┼──────┼──────┼─────────────┤               ├──────────────┼─────┼──────┼───┴───────────────────────────────┴─────────────┘
 //                            │ lgui │ mo 1 │ mt lalt ent │               │ mt rctl bspc │ spc │ mo 2 │
 //                            └──────┴──────┴─────────────┘               └──────────────┴─────┴──────┘
-  &mt RALT TAB      &kp Q   &kp W   &kp E      &kp R   &kp T                            &kp Y                 &kp U       &kp I       &kp O     &kp P                        &mt LALT ESCAPE
+  &hm2 RALT TAB     &kp Q   &kp W   &kp E      &kp R   &kp T                            &kp Y                 &kp U       &kp I       &kp O     &kp P                        &mt LALT ESCAPE
   &mt LCTRL GRAVE   &kp A   &kp S   &kp D      &kp F   &kp G                            &kp H                 &kp J       &kp K       &kp L     &mt RCTRL SEMI               &mt LGUI SINGLE_QUOTE
-  &sk LEFT_SHIFT    &kp Z   &kp X   &kp C      &kp V   &kp B                            &kp N                 &kp M       &kp COMMA   &kp DOT   &mt LS(LC(LA(LGUI))) FSLH   &sk RIGHT_SHIFT
+  &sk LEFT_SHIFT    &kp Z   &kp X   &kp C      &kp V   &kp B                            &kp N                 &kp M       &kp COMMA   &kp DOT   &hm2 LS(LC(LA(LGUI))) FSLH   &sk RIGHT_SHIFT
                                     &kp LGUI   &mo 1   &mt LALT ENTER                   &mt RCTRL BACKSPACE   &kp SPACE   &mo 2
             >;
         };
@@ -103,6 +128,14 @@
   &kp COMMA   &kp NUMBER_6   &kp NUMBER_7   &kp N8         &kp N9         &kp NUMBER_0                   &kp PIPE    &kp BACKSLASH   &kp PLUS       &kp LEFT_BRACKET       &kp RIGHT_BRACKET       &kp GT
                                             &trans         &trans         &trans                         &trans      &trans          &trans
             >;
+        };
+
+        raise_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             display-name = "Raise";
             bindings = <
